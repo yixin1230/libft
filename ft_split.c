@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 19:56:59 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/21 19:27:04 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/24 18:49:14 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,99 +14,150 @@
 #include <stdlib.h>
 #include "libft.h"
 
-size_t	count_str(char const *s, char c)
+static size_t	count_str(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
 
 	i = 0;
 	count = 0;
-	if (ft_strchr(s, c) == NULL)
+	if (!s)
 		return (0);
-	if (!s || !c)
-		return (0);
+	if (ft_strchr(s, c) == NULL || !c)
+		return (1);
 	while (s[i])
 	{
-		if (s[i] != c  && s[i + 1] == c && s[i + 1] != '\0')
+		if (s[i] == c && s[i - 1] != c && i > 0)
+			count++;
+		if (s[i] != c && s[i + 1] == '\0')
 			count++;
 		i++;
 	}
-	if (s[i] != c && s[i] == '\0' && s[i - 1] != c)
-		count++;
 	return (count);
 }
 
-char	**cpy_str(char const *s, char **dst, char c)
+static char	**free_error(char **p)
+{
+	size_t	i;
+
+	i = 0;
+	while (p[i])
+	{
+		free (p[i]);
+		i++;
+	}
+	free (p);
+	return (NULL);
+}
+
+static char	**ft_cal(const char *s, char **p, char c, size_t count)
 {
 	size_t	i;
 	size_t	j;
-	size_t	h;
 
 	i = 0;
 	j = 0;
-	h = 0;
 	while (s[i])
 	{
-		while (s[i] != c)
+		if (s[i] != c)
+			count++;
+		else if (s[i] == c && s[i - 1] != c && i > 0)
 		{
-			dst[j][h] = s[i];
-			h++;
-			i++;
-			if (s[i] == c && s[i + 1] != c)
-				j++;
+			p[j] = ft_calloc(count + 1, sizeof(char));
+			count = 0;
+			j++;
 		}
-		h = 0;
+		if (s[i + 1] == '\0' && s[i] != c)
+			p[j] = ft_calloc(count + 1, sizeof(char));
 		i++;
 	}
-	return (dst);
+	return (p);
+}
+
+static char	**ft_cpy(const char *s, char **p, char c, size_t count)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+			count++;
+		else if (s[i] == c && s[i - 1] != c && i > 0)
+		{
+			p[j] = ft_memmove(p[j], s + i - count, count);
+			count = 0;
+			j++;
+		}
+		if (s[i + 1] == '\0' && s[i] != c)
+			p[j] = ft_memmove(p[j], s + i - count + 1, count);
+		i++;
+	}
+	return (p);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
 	size_t	count;
 	char	**p;
 
-	i = 0;
-	j = 0;
 	count = 0;
-/* 	if (!s)
-		p = ft_calloc(1, sizeof(char *));
-	if (!*s)
-		return (NULL); */
+	if (!s)
+		return (NULL);
 	p = ft_calloc(count_str(s, c) + 1, sizeof(char *));
 	if (!p)
-		return (0);
-	while (s[i])
-	{
-		while (s[i + count] != c)
-		{
-			count++;
-		}
-			if (s[i + count] == c && s[i + count + 1] != c )
-			{
-				p[j] = ft_calloc(count + 1, sizeof(char));
-				j++;
-			}
-		i++;
-		count = 0;
-
-	}
-	cpy_str(s, p, c);
+		return (NULL);
+	p = ft_cal(s, p, c, count);
+	if (!p)
+		free_error(p);
+	else
+		ft_cpy(s, p, c, count);
 	return (p);
-} 
-
-int main(void)
-{
-	char	**p2;
-
-	p2 = ft_split("ghfjgf t yf uyft ",' ');
-/* 	p2 = ft_split("      split       this for   me  !       ",' ');
-	p2 = ft_split("                  olol",' ');
-	p2 = ft_split("olol        ",' '); */
-	for(int	i = 0; i<5;i++)
-		printf("%s\n",p2[i]);
-	for(int	i = 0; i<5;i++)
-		free(p2[i]);
 }
+
+/* int main(void)
+{
+	char	**s;
+	s = ft_split(" 012 3 4 5 6   89   ",' ');
+	for(size_t	i = 0; i < 6;i++)
+		printf("s:%s\n",s[i]);
+	for(size_t	i = 0; i < 6;i++)
+		free(s[i]);
+
+	char	**s1;
+	s1 = ft_split("      split       this for   me  !       ",' ');
+	for(size_t	i = 0; i < 5;i++)
+		printf("s1:%s\n",s1[i]);
+	for(size_t	i = 0; i < 5;i++)
+		free(s1[i]);
+	
+	char	**s2;
+	s2 = ft_split("                  olol",' ');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s2:%s\n",s2[i]);
+	for(size_t	i = 0; i < 1;i++)
+		free(s2[i]);
+
+	char	**s3;
+	s3 = ft_split("olol        ",' ');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s3:%s\n",s3[i]);
+	for(size_t	i = 0; i < 1;i++)
+		free(s3[i]);
+
+	char	**s4;
+	s4 = ft_split("hello!",' ');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s4:%s\n",s4[i]);
+	for(size_t	i = 0; i < 1;i++)
+		free(s4[i]);
+
+	char	**s5;
+	s5 = ft_split("xxxxxxxxhello!",'x');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s5:%s\n",s5[i]);
+	for(size_t	i = 0; i < 1;i++)
+		free(s5[i]);	
+}  */
