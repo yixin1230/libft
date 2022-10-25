@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 08:26:47 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/18 18:49:01 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/25 19:39:49 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	cpy_len = len;
-	if(!s)
-		return(NULL);
-	if ((size_t)start  >= (size_t)ft_strlen(s) || len == 0 || ft_strlen(s) == 0)
+	if (!s)
+		return (NULL);
+	if ((size_t)start >= (size_t)ft_strlen(s) || len == 0 || ft_strlen(s) == 0)
 	{
 		str = ft_calloc(1, sizeof(char));
 		return (str);

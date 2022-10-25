@@ -6,84 +6,74 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/21 16:22:37 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/24 19:57:43 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/25 16:48:18 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
 
-static int	count(int n)
+static size_t	count(int n)
 {
-	int	i;
-	size_t	count;
+	long	i;
+	int		count;
 
 	i = n;
 	count = 1;
 	if (n < 0)
-	{
 		i = -i;
-		count++;
-	}
-	while(i > 9)
+	while (i > 9)
 	{
 		i /= 10;
 		count++;
 	}
 	return (count);
 }
-char *digit(int n)
+
+static char	*digit(long nb, int n, char *c, int len)
 {
-	char	c;
-	int		i;
-
-	i = n;
-	if (i < 10)
-		c = i + '0';
-	if (i >= 10)
+	while (len)
 	{
-		c[i] = digit(n % 10);
-		c[i] = digit(n / 10);
+		if (len <= 1)
+			c[len - 1] = nb + '0';
+		else
+		{
+			c[len - 1] = (nb % 10) + '0';
+			nb /= 10;
+		}
+		len--;
 	}
-}
-
-char *ft_itoa(int n)
-{
-	char	*c;
-	size_t	i;
-	int		nb;
-
-	i = 0;
-	nb = n;
-	if (nb < 0)
-	{
-		c = malloc((count(n) + 1) * sizeof(char));
-		c[i] = '-';
-		nb = -nb;
-		i++;
-	}
-	else
-		c = malloc((count(n) + 1) * sizeof(char));
-	if(!c)
-		return (NULL);
-	if (nb < 10)
-	{
-		c[i] = nb + '0';
-		i++;
-	}
-	else
-	{
-		c[i] = ft_itoa(nb / 10);
-		i++;
-		c[i] = (nb % 10) + '0';
-		i++;
-	}
-	c[i] = '\0';
+	if (n < 0)
+		c[len] = '-';
 	return (c);
 }
 
-int main (void)
+char	*ft_itoa(int n)
 {
-	printf("%s\n",ft_itoa(-70));
-	printf("%d",count(12));
+	char	*c;
+	long	nb;
+	size_t	len;
+
+	nb = (long)n;
+	len = count(n);
+	if (nb < 0)
+	{
+		len += 1;
+		c = malloc((len + 1) * sizeof(char));
+		nb = -nb;
+	}
+	else
+		c = malloc((len + 1) * sizeof(char));
+	if (!c)
+		return (NULL);
+	digit(nb, n, c, len);
+	c[len] = '\0';
+	return (c);
 }
+
+/* int main (void)
+{
+	printf("%s\n",ft_itoa(-2147483648LL));
+	printf("%s\n",ft_itoa(-2147483647 -1));
+} */

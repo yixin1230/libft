@@ -6,7 +6,7 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:01:02 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/21 09:19:46 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/25 19:40:34 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,30 @@ size_t	ft_strlcpy(char *dst,
 			const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst,
 			const char *src, size_t dstsize);
-	
+
 void	*ft_memset(void *str, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strdup(const char *s1);
 char	*strdup(const char *s1);
-char	*ft_substr(char const *s, unsigned int start,size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
-char **ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 
 #endif

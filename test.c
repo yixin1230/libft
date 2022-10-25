@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 11:59:08 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 10:43:12 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/25 19:42:35 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,10 @@ int main(void)
 
 	printf("ft_strnstr:%s\n",ft_strnstr("MZIRIBMZIRIBMZE123", "MZIRIBMZE", 9));
 	printf("original:%s\n\n",strnstr("MZIRIBMZIRIBMZE123","MZIRIBMZE", 9));
+
+	//ft_strtrim test
+	printf("1ft_strtrim:%s\n",ft_strtrim("3 11119199suf1  h1a3 1111sf1 1sd  1fas 3 1111", "3 1111"));
+	printf("2ft_strtrim:%s\n",ft_strtrim("t elorem ipsum dolor sit amet", "tae m"));
+	printf("2ft_strtrim:%s\n",ft_strtrim("", ""));
 
 }

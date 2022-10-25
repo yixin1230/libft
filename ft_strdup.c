@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 13:29:10 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 11:40:23 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/25 19:38:36 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s1)
 
 	len = ft_strlen(s1);
 	i = 0;
-	p = (char *)malloc(len + 1 * sizeof(char));
+	p = malloc(len + 1 * sizeof(char));
 	if (p == 0)
 		return (NULL);
 	while (s1[i])

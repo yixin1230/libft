@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 14:27:29 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 14:46:05 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/25 19:37:16 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
-	int 	len;
+	int		len;
 	char	*s3;
 
 	i = 0;
 	len = 0;
 	s3 = malloc((ft_strlen(s1)+ft_strlen(s2) + 2) * sizeof(char));
-	if(!s3)
+	if (!s3)
 		return (s3);
 	while (s1[i])
 	{
