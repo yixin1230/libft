@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 19:56:59 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/24 18:49:14 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/26 20:32:46 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	count_str(char const *s, char c)
 		return (1);
 	while (s[i])
 	{
-		if (s[i] == c && s[i - 1] != c && i > 0)
+		if (s[i] == c && i > 0 && s[i - 1] != c)
 			count++;
 		if (s[i] != c && s[i + 1] == '\0')
 			count++;
@@ -61,20 +61,22 @@ static char	**ft_cal(const char *s, char **p, char c, size_t count)
 	{
 		if (s[i] != c)
 			count++;
-		else if (s[i] == c && s[i - 1] != c && i > 0)
+		else if (s[i] == c && i > 0 && s[i - 1] != c)
 		{
 			p[j] = ft_calloc(count + 1, sizeof(char));
 			count = 0;
 			j++;
 		}
 		if (s[i + 1] == '\0' && s[i] != c)
+		{
 			p[j] = ft_calloc(count + 1, sizeof(char));
+		}
 		i++;
 	}
 	return (p);
 }
 
-static char	**ft_cpy(const char *s, char **p, char c, size_t count)
+static void	ft_cpy(const char *s, char **p, char c, size_t count)
 {
 	size_t	i;
 	size_t	j;
@@ -85,7 +87,7 @@ static char	**ft_cpy(const char *s, char **p, char c, size_t count)
 	{
 		if (s[i] != c)
 			count++;
-		else if (s[i] == c && s[i - 1] != c && i > 0)
+		else if (s[i] == c && i > 0 && s[i - 1] != c)
 		{
 			p[j] = ft_memmove(p[j], s + i - count, count);
 			count = 0;
@@ -95,7 +97,6 @@ static char	**ft_cpy(const char *s, char **p, char c, size_t count)
 			p[j] = ft_memmove(p[j], s + i - count + 1, count);
 		i++;
 	}
-	return (p);
 }
 
 char	**ft_split(char const *s, char c)
@@ -160,4 +161,20 @@ char	**ft_split(char const *s, char c)
 		printf("s5:%s\n",s5[i]);
 	for(size_t	i = 0; i < 1;i++)
 		free(s5[i]);	
+}  */
+
+/*  int main(int ac, char **av)
+{
+	char ** dstr;
+	int i = 0;
+
+ac = 0;
+	dstr = ft_split(av[1], 'x');
+	while(dstr[i])
+	{
+	printf("%dth string%s\n", i, dstr[i]);
+	i++;
+	}
+	printf("%dth string%s\n", i, dstr[i]);
+	return(0);
 }  */
