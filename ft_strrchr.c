@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 18:21:52 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/25 20:13:02 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/26 15:25:37 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,21 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	int		n;
-	char	*tmp;
+	const char	*tmp;
 
-	i = 0;
-	n = 0;
-	tmp = (char *)s;
-	if (tmp[0] == (char)c)
-		return ((char *)s);
-	while (tmp[i])
+	tmp = NULL;
+	while (*s)
 	{		
-		if (tmp[i] == (char)c)
-			n = i;
-		i++;
+		if (*s == (char)c)
+			tmp = s;
+		s++;
 	}
-	if (tmp[i] == (char)c)
-		return ((char *)s + i);
-	if (tmp[n] == (char)c)
-		return ((char *)s + n);
-	return (0);
+	if (*s == '\0' && (char)c == '\0')
+	{
+		tmp = s;
+		return ((char *)tmp);
+	}
+	return ((char *)tmp);
 }
 
 /* int main(void)
