@@ -6,12 +6,10 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 18:21:44 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 10:08:50 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:25:48 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
 #include "libft.h"
 
 int	ft_tolower(int c)
@@ -22,11 +20,3 @@ int	ft_tolower(int c)
 	}
 	return (c);
 }
-
-/* int main(void)
-{
-	char c;
-	c = 'S';
-	printf("%c\n",ft_tolower(c));
-	printf("%c\n\n",tolower(c));
-} */

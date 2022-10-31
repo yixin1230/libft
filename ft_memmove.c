@@ -6,15 +6,13 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 15:42:19 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 10:42:08 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:14:25 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-void	ft_strcpy(char *dst, const char *src, size_t len)
+static void	ft_strcpy(char *dst, const char *src, size_t len)
 {
 	size_t	i;
 
@@ -50,10 +48,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-/* 
-int main(void)
-{
-	char	src[]="22aaADSASDASD";
-	printf("ft_memmove:%s\n",ft_memmove(src+3, src, 6*sizeof(char)));
-	printf("orignial:%s\n\n",memmove(src+3, src, 6*sizeof(char)));
-} */

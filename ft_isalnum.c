@@ -6,12 +6,10 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 15:26:29 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/06 11:27:19 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:10:11 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
 #include "libft.h"
 
 int	ft_isalnum(int c)
@@ -21,10 +19,3 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
-
-/*int main(void)
-{
-	printf("%d",ft_isalnum(' '));
-	printf("\n%d",isalnum(' '));
-}
-*/

@@ -6,12 +6,10 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 18:22:15 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/26 14:55:45 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:17:48 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
@@ -25,20 +23,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)s + i);
 		i++;
 	}
-	if (s[i] == (char)c && s[i] == '\0')
+	if ((char)c == '\0')
 		return ((char *)s + i);
 	return (0);
 }
-
-/* int main(void)
-{
-	const char s[]="sfAsufgyis";
-	char c;
-	c = '\0';
-	printf("ft_strchr: %s\n",ft_strchr(s,c));
-	printf("original: %s\n\n",strchr(s,c));
-	printf("ft_strchr: %s\n",ft_strchr("teste",'e'));
-	printf("original: %s\n\n",strchr("teste",'e'));
-		printf("ft_strchr: %s\n",ft_strchr("teste",'\0'));
-	printf("original: %s\n\n",strchr("teste",'\0'));
-} */

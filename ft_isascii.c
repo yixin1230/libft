@@ -6,12 +6,10 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 15:32:34 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/06 11:28:10 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:10:37 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
 #include "libft.h"
 
 int	ft_isascii(int c)
@@ -21,10 +19,3 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
-
-/*int	main(void)
-{
-	printf("%d", ft_isascii('0x80'));
-	printf("\n%d", isascii('0x80'));
-}
-*/

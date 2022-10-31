@@ -6,14 +6,12 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 08:26:47 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/25 19:39:49 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:24:52 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
-//literal is too large to be represented in a signed integer type
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
@@ -41,23 +39,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (str);
 }
-
-/* int main(void)
-{
-	printf("1ft_substr: %s\n",ft_substr("123456789", 1, 2));
-	printf("2ft_substr: %s\n",ft_substr("123456789", 0, 2));
-	printf("3ft_substr: %s\n",ft_substr("123456789", 0, 0));
-	printf("4ft_substr: %s\n",ft_substr("123456789", 0, 10));
-	printf("5ft_substr: %s\n",ft_substr("123456789", 0, 20));
-	char *s;
-	s = "all of this !";
-	size_t size = ft_strlen(s);
-	printf("6ft_substr: %s\n",ft_substr(s, 0, size));
-	printf("7ft_substr: %s\n",ft_substr("hola", 0, 184));
-	printf("8ft_substr: %s\n",ft_substr("sfs", 7, 0));
-	printf("9ft_substr: %s\n",ft_substr("sfs", 7, 5));
-	printf("10ft_substr: %s\n",ft_substr("1234", 0, 0));
-	printf("11ft_substr: %s\n",ft_substr("", 1, 0));
-	printf("12ft_substr: %s\n",ft_substr("", 1, 1));
-	printf("13ft_substr: %s\n",ft_substr("", 0, 1));
-} */

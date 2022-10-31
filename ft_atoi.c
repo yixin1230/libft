@@ -6,12 +6,10 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 18:22:34 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 10:39:56 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:09:23 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 int	ft_atoi(const char *str)
@@ -38,10 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (n * is_n);
 }
-
-/* int main(void)
-{
-	char str[] = "   	1 1m32";
-	printf("ft_atoi:%d\n",ft_atoi(str));
-	printf("original:%d\n\n",atoi(str));
-} */

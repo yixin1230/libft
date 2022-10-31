@@ -6,12 +6,10 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 13:29:10 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/25 19:38:36 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:18:17 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
@@ -33,10 +31,3 @@ char	*ft_strdup(const char *s1)
 	p[i] = '\0';
 	return (p);
 }
-
-/* int main(void)
-{
-	char s1[] = "21312";
-	printf("ft_strdup:%s\n",ft_strdup(s1));
-	printf("original:%s\n\n",ft_strdup(s1));
-} */

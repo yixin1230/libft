@@ -6,13 +6,10 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 15:41:36 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 10:22:04 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:14:06 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
@@ -33,10 +30,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-/* int main(void)
-{
- 	char	dst[] = "kuhdusf";
- 	printf("ft_memcpy:%s\n",ft_memcpy(dst+8, dst, 5*sizeof(char)));
- 	printf("orignial:%s\n\n",memcpy(dst+8, dst , 5*sizeof(char)));
-
-} */

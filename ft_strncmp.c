@@ -6,12 +6,10 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 18:22:05 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 10:03:13 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:23:23 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -28,8 +26,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-/*  int main(void)
-{
-	printf("ft_strncmp:%d\n",ft_strncmp("\0", "\n", 4));
-	printf("original:%d\n\n",strncmp("\0", "\n", 4));
-}  */

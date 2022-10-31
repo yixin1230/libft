@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 15:35:48 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/25 19:42:41 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/27 19:26:56 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-size_t	ft_findset(char c, char const *set)
+static size_t	ft_findset(char c, char const *set)
 {
 	size_t	i;
 

@@ -6,12 +6,10 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 15:39:32 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/13 19:29:54 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:10:53 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
 #include "libft.h"
 
 int	ft_isprint( int c)
@@ -21,10 +19,3 @@ int	ft_isprint( int c)
 	else
 		return (0);
 }
-
-/* int	main(void)
-{
-	printf("%d", ft_isprint('j'));
-	printf("\n%d", isprint('j'));
-}
- */

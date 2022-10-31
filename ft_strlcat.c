@@ -6,12 +6,10 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 18:22:49 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/17 10:01:48 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:20:51 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
@@ -39,12 +37,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	return (all);
 }
-
-/* int main(void)
-{
-	//ft
-	printf("ft_strlcat: len: %zu\n",ft_strlcat("pqrstuvwxyz", "abcd", 1));
-
-	//original
-	printf("original: len: %zu\n",strlcat("pqrstuvwxyz", "abcd", 1));
-} */
