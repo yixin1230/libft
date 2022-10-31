@@ -6,7 +6,7 @@
 #    By: yizhang <marvin@codam.nl>                    +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/05 17:01:17 by yizhang       #+#    #+#                  #
-#    Updated: 2022/10/25 18:51:51 by yizhang       ########   odam.nl          #
+#    Updated: 2022/10/31 17:23:32 by yizhang       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,19 +30,25 @@ OBJS = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
 		ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o\
 		ft_putnbr_fd.o
 
+B_SRCS = ft_lstnew.c
+B_OBJS = $(B_OBJS: .c = .o)
 
-all: ${NAME}
+all: $(NAME)
 
-${OBJS}:${SRCS}
-	${CC} ${FLAGS} -c ${SRCS}
+$(OBJS):$(SRCS)
+	$(CC) $(FLAGS) -c $(SRCS)
 
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+bonus:
+	$(CC) $(FLAGS) -c $(B_SRCS)
+	ar rcs $(NAME) $(B_OBJS)
 
 clean:
-	rm -rf ${OBJS}
+	rm -rf $(OBJS)
 
 fclean: clean
-	rm -f ${NAME}
+	rm -f $(NAME)
 
 re: fclean all

@@ -6,12 +6,10 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 19:56:59 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 14:12:38 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 17:17:18 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
 #include "libft.h"
 
 static size_t	count_str(char const *s, char c)
@@ -101,61 +99,3 @@ char	**ft_split(char const *s, char c)
 	p = ft_cpy(s, p, c, nb);
 	return (p);
 }
-
-/* int main(void)
-{
-	char	**s;
-	s = ft_split(" 012 3 4 5 6   89   ",' ');
-	for(size_t	i = 0; i < 6;i++)
-		printf("s:%s\n",s[i]);
-
-	char	**s1;
-	s1 = ft_split("      split       this for   me  !       ",' ');
-	for(size_t	i = 0; i < 5;i++)
-		printf("s1:%s\n",s1[i]);
-	
-	char	**s2;
-	s2 = ft_split("                  olol",' ');
-	for(size_t	i = 0; i < 1;i++)
-		printf("s2:%s\n",s2[i]);
-
-	char	**s3;
-	s3 = ft_split("olol        ",' ');
-	for(size_t	i = 0; i < 1;i++)
-		printf("s3:%s\n",s3[i]);
-
-	char	**s4;
-	s4 = ft_split("hello!",' ');
-	for(size_t	i = 0; i < 1;i++)
-		printf("s4:%s\n",s4[i]);
-
-	char	**s5;
-	s5 = ft_split("xxxxxxxxhello!",'x');
-	for(size_t	i = 0; i < 1;i++)
-		printf("s5:%s\n",s5[i]);
-
-	char	**s6;
-	s6 = ft_split("",'x');
-	for(size_t	i = 0; i < 1;i++)
-	printf("s6:sting%zu:%s\n",i,s6[i]);
-
-	char	**s7;
-	s7 = ft_split("\0aa\0bbb",'\0');
-	for(size_t	i = 0; i < 1;i++)
-	printf("s7:sting%zu:%s\n",i,s7[i]);
-}  */
-
-/* static void	ft_free2m(char	**data, size_t word)
-{
-	size_t	i;
-
-	i = 0;
-	while (i <= word)
-	{
-		if (data[i])
-			free(data[i]);
-		i++;
-	}
-	free(data);
-}
- */
