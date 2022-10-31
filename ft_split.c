@@ -6,11 +6,12 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 19:56:59 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 12:22:51 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 14:12:38 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 #include "libft.h"
 
 static size_t	count_str(char const *s, char c)
@@ -46,12 +47,12 @@ static	size_t	count_str_len(const char *s, char c)
 	return (i);
 }
 
-static void	free_error(char **p)
+static void	free_error(char **p, size_t nb)
 {
 	size_t	i;
 
 	i = 0;
-	while (p[i])
+	while (i <= nb)
 	{
 		free (p[i]);
 		i++;
@@ -59,7 +60,7 @@ static void	free_error(char **p)
 	free (p);
 }
 
-static char	**ft_cal(const char *s, char **p, char c, size_t nb)
+static char	**ft_cpy(const char *s, char **p, char c, size_t nb)
 {
 	size_t	i;
 	size_t	j;
@@ -76,11 +77,13 @@ static char	**ft_cal(const char *s, char **p, char c, size_t nb)
 		len = count_str_len(&s[i], c);
 		p[j] = ft_substr(s, i, len);
 		if (!p[j])
-			free_error(p);
+		{
+			free_error(p, nb);
+			return (NULL);
+		}
 		i += len;
 		j++;
 	}
-	p[j] = NULL;
 	return (p);
 }
 
@@ -95,9 +98,7 @@ char	**ft_split(char const *s, char c)
 	p = ft_calloc(nb + 1, sizeof(char *));
 	if (!p)
 		return (NULL);
-	ft_cal(s, p, c, nb);
-	if (!p)
-		return (NULL);
+	p = ft_cpy(s, p, c, nb);
 	return (p);
 }
 
@@ -143,3 +144,18 @@ char	**ft_split(char const *s, char c)
 	for(size_t	i = 0; i < 1;i++)
 	printf("s7:sting%zu:%s\n",i,s7[i]);
 }  */
+
+/* static void	ft_free2m(char	**data, size_t word)
+{
+	size_t	i;
+
+	i = 0;
+	while (i <= word)
+	{
+		if (data[i])
+			free(data[i]);
+		i++;
+	}
+	free(data);
+}
+ */
