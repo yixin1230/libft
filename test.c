@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 11:59:08 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:22:39 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:33:43 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,7 +223,7 @@ int main(void)
 		printf("s5:%s\n",s5[i]);
 	for(size_t	i = 0; i < 1;i++)
 		free(s5[i]);	
-}  */
+} 
 
  int main(int ac, char **av)
 {
