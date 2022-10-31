@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/21 16:25:01 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:37:00 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:44:32 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(nb + '0', fd);
 }
-

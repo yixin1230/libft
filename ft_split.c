@@ -6,10 +6,11 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 19:56:59 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:37:22 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 12:22:51 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 static size_t	count_str(char const *s, char c)
@@ -19,22 +20,33 @@ static size_t	count_str(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	if (!s)
-		return (0);
-	if (ft_strchr(s, c) == NULL || !c)
-		return (1);
 	while (s[i])
 	{
-		if (s[i] == c && i > 0 && s[i - 1] != c)
-			count++;
-		if (s[i] != c && s[i + 1] == '\0')
+		if (s[i] != c && (s[i + 1] == '\0' || s[i + 1] == c))
 			count++;
 		i++;
 	}
 	return (count);
 }
 
-static char	**free_error(char **p)
+static	size_t	count_str_len(const char *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (*s == c)
+		s++;
+	while (*s != c && *s)
+	{
+		i++;
+		s++;
+	}
+	return (i);
+}
+
+static void	free_error(char **p)
 {
 	size_t	i;
 
@@ -45,73 +57,89 @@ static char	**free_error(char **p)
 		i++;
 	}
 	free (p);
-	return (NULL);
 }
 
-static char	**ft_cal(const char *s, char **p, char c, size_t count)
+static char	**ft_cal(const char *s, char **p, char c, size_t nb)
 {
 	size_t	i;
 	size_t	j;
+	size_t	len;
+	size_t	s_len;
 
 	i = 0;
 	j = 0;
-	while (s[i])
+	s_len = ft_strlen(s);
+	while (j < nb)
 	{
-		if (s[i] != c)
-			count++;
-		else if (s[i] == c && i > 0 && s[i - 1] != c)
-		{
-			p[j] = ft_calloc(count + 1, sizeof(char));
-			count = 0;
-			j++;
-		}
-		if (s[i + 1] == '\0' && s[i] != c)
-		{
-			p[j] = ft_calloc(count + 1, sizeof(char));
-		}
-		i++;
+		while (s[i] == c && i < s_len)
+			i++;
+		len = count_str_len(&s[i], c);
+		p[j] = ft_substr(s, i, len);
+		if (!p[j])
+			free_error(p);
+		i += len;
+		j++;
 	}
+	p[j] = NULL;
 	return (p);
-}
-
-static void	ft_cpy(const char *s, char **p, char c, size_t count)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-			count++;
-		else if (s[i] == c && i > 0 && s[i - 1] != c)
-		{
-			p[j] = ft_memmove(p[j], s + i - count, count);
-			count = 0;
-			j++;
-		}
-		if (s[i + 1] == '\0' && s[i] != c)
-			p[j] = ft_memmove(p[j], s + i - count + 1, count);
-		i++;
-	}
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	count;
 	char	**p;
+	size_t	nb;
 
-	count = 0;
 	if (!s)
 		return (NULL);
-	p = ft_calloc(count_str(s, c) + 1, sizeof(char *));
+	nb = count_str(s, c);
+	p = ft_calloc(nb + 1, sizeof(char *));
 	if (!p)
 		return (NULL);
-	p = ft_cal(s, p, c, count);
+	ft_cal(s, p, c, nb);
 	if (!p)
-		free_error(p);
-	else
-		ft_cpy(s, p, c, count);
+		return (NULL);
 	return (p);
 }
+
+/* int main(void)
+{
+	char	**s;
+	s = ft_split(" 012 3 4 5 6   89   ",' ');
+	for(size_t	i = 0; i < 6;i++)
+		printf("s:%s\n",s[i]);
+
+	char	**s1;
+	s1 = ft_split("      split       this for   me  !       ",' ');
+	for(size_t	i = 0; i < 5;i++)
+		printf("s1:%s\n",s1[i]);
+	
+	char	**s2;
+	s2 = ft_split("                  olol",' ');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s2:%s\n",s2[i]);
+
+	char	**s3;
+	s3 = ft_split("olol        ",' ');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s3:%s\n",s3[i]);
+
+	char	**s4;
+	s4 = ft_split("hello!",' ');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s4:%s\n",s4[i]);
+
+	char	**s5;
+	s5 = ft_split("xxxxxxxxhello!",'x');
+	for(size_t	i = 0; i < 1;i++)
+		printf("s5:%s\n",s5[i]);
+
+	char	**s6;
+	s6 = ft_split("",'x');
+	for(size_t	i = 0; i < 1;i++)
+	printf("s6:sting%zu:%s\n",i,s6[i]);
+
+	char	**s7;
+	s7 = ft_split("\0aa\0bbb",'\0');
+	for(size_t	i = 0; i < 1;i++)
+	printf("s7:sting%zu:%s\n",i,s7[i]);
+}  */

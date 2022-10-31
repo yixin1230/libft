@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/21 16:22:37 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:36:46 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 09:41:03 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,4 @@ char	*ft_itoa(int n)
 	digit(nb, n, c, len);
 	c[len] = '\0';
 	return (c);
-}
-
-int main (void)
-{
-	printf("%s\n",ft_itoa(-2147483648));
-	printf("%s\n",ft_itoa(-2147483647 -1));
 }
