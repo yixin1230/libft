@@ -6,7 +6,7 @@
 #    By: yizhang <marvin@codam.nl>                    +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/05 17:01:17 by yizhang       #+#    #+#                  #
-#    Updated: 2022/10/31 17:41:49 by yizhang       ########   odam.nl          #
+#    Updated: 2022/10/31 18:11:00 by yizhang       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,15 +38,16 @@ all: $(NAME)
 $(OBJS):$(SRCS)
 	$(CC) $(FLAGS) -c $(SRCS)
 
-$(NAME): $(OBJS)
+$(NAME):$(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 bonus:
+	$(MAKE)
 	$(CC) $(FLAGS) -c $(B_SRCS)
 	ar rcs $(NAME) $(B_OBJS)
 
 clean:
-	rm -rf $(OBJS) (B_OBJS)
+	rm -rf $(OBJS) $(B_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
