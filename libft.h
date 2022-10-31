@@ -6,7 +6,7 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:01:02 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/25 19:40:34 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 17:27:24 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stdlib.h> //for size_t
 # include <unistd.h> //for malloc
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int i);
 int		ft_isdigit(int i);
