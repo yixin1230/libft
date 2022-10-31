@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstsize.c                                       :+:    :+:            */
+/*   ft_lstadd_back.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/31 18:33:43 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 19:10:23 by yizhang       ########   odam.nl         */
+/*   Created: 2022/10/31 19:23:38 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/10/31 19:24:19 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	while (lst != NULL)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	
 }

@@ -6,7 +6,7 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:01:02 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 18:34:37 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/10/31 19:24:32 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
@@ -64,7 +65,8 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
-t_list	*ft_lstnew(void *content);
 
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
 
 #endif

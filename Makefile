@@ -6,7 +6,7 @@
 #    By: yizhang <marvin@codam.nl>                    +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/05 17:01:17 by yizhang       #+#    #+#                  #
-#    Updated: 2022/10/31 18:34:54 by yizhang       ########   odam.nl          #
+#    Updated: 2022/10/31 19:24:53 by yizhang       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ OBJS = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
 		ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o\
 		ft_putnbr_fd.o
 
-B_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c
-B_OBJS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o
+B_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
+B_OBJS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o\
 
 all: $(NAME)
 
