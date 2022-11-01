@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 11:59:08 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 17:25:50 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/11/01 11:11:39 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,27 @@ int main(void)
 		printf("s5:%s\n",s5[i]);
 	for(size_t	i = 0; i < 1;i++)
 		free(s5[i]);	
+
+	//ft_lstadd_back test
+	t_list	*lst;
+	t_list	*new;
+	lst = malloc(sizeof(t_list));
+	new = malloc(sizeof(t_list));
+	if(!lst)
+		free(lst);
+	if(!new)
+		free(new);
+	lst->content = (int*)2;
+	lst->next = NULL;
+
+	new->content = (int*)88;
+	new->next = NULL;
+
+	ft_lstadd_back(&lst,new);
+	for (t_list *curr = lst; curr != NULL; curr = curr->next)
+	{
+		printf("%d - ", (int)curr->content);
+	}
 } 
 
  int main(int ac, char **av)
