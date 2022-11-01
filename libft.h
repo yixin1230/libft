@@ -6,7 +6,7 @@
 /*   By: yizhang <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:01:02 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/11/01 12:54:58 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/11/01 13:42:24 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ char	**ft_split(char const *s, char c);
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
