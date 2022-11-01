@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 11:59:08 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/11/01 11:11:39 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/11/01 12:53:20 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,4 +262,25 @@ ac = 0;
 	return(0);
 } 
 
+//ft_lstclear test
+void del (void * thing)
+{
+	thing = 0;
+}
 
+int main(void)
+{
+	t_list	*lst;
+	lst = malloc(sizeof(t_list));
+	if(!lst)
+		free(lst);
+	lst->content = (int*)2;
+	lst->next = NULL;
+
+
+	ft_lstclear(&lst, del);
+	for (t_list *curr = lst; curr != NULL; curr = curr->next)
+	{
+		printf("%d - ", (int)curr->content);
+	}
+}
