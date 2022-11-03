@@ -6,9 +6,10 @@
 #    By: yizhang <marvin@codam.nl>                    +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/05 17:01:17 by yizhang       #+#    #+#                  #
-#    Updated: 2022/11/01 13:42:41 by yizhang       ########   odam.nl          #
+#    Updated: 2022/11/03 12:32:22 by yizhang       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = libft.a
 
@@ -36,18 +37,25 @@ B_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.
 B_OBJS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o\
 			ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
 
+ifndef ADDBONUS
+	ALLOBJS = ${OBJS} + ${B_OBJS}
+else
+	ALLOBJS = ${OBJS}
+endif
+
 all: $(NAME)
 
 $(OBJS):$(SRCS)
 	$(CC) $(FLAGS) -c $(SRCS)
 
-$(NAME):$(OBJS)
-	ar rcs $(NAME) $(OBJS)
+${B_OBJS}: ${B_SRCS}
+	$(CC) $(FLAGS) -c $(B_SRCS)
+
+$(NAME):$(ALLOBJS)
+	ar -rcs $(NAME) $(ALLOBJS)
 
 bonus:
-	$(MAKE)
-	$(CC) $(FLAGS) -c $(B_SRCS)
-	ar rcs $(NAME) $(B_OBJS)
+	@$(MAKE) ADDBONUS=1
 
 clean:
 	rm -rf $(OBJS) $(B_OBJS)
