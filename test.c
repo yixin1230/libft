@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 11:59:08 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/11/01 12:53:20 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/11/03 11:08:43 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include "libft.h"
 
 
@@ -176,7 +177,44 @@ int main(void)
 	s = "lalal";
 	printf("ft_strmapi:%s\n",ft_strmapi(s, fun));
 
-	
+	//ft_strncmp test
+	printf("ft_strncmp:%d\n",ft_strncmp("\0", "\n", 4));
+	printf("original:%d\n\n",strncmp("\0", "\n", 4));
+
+	//ft_strrchr test
+	printf("ft_strrchr:%s\n",ft_strrchr( "teste",  '?'));
+	printf("original:%s\n\n",strrchr( "teste", '?'));
+
+	//ft_substr test
+	printf("1ft_substr: %s\n",ft_substr("123456789", 1, 2));
+	printf("2ft_substr: %s\n",ft_substr("123456789", 0, 2));
+	printf("3ft_substr: %s\n",ft_substr("123456789", 0, 0));
+	printf("4ft_substr: %s\n",ft_substr("123456789", 0, 10));
+	printf("5ft_substr: %s\n",ft_substr("123456789", 0, 20));
+	char *s;
+	s = "all of this !";
+	size_t size = ft_strlen(s);
+	printf("6ft_substr: %s\n",ft_substr(s, 0, size));
+	printf("7ft_substr: %s\n",ft_substr("hola", 0, 184));
+	printf("8ft_substr: %s\n",ft_substr("sfs", 7, 0));
+	printf("9ft_substr: %s\n",ft_substr("sfs", 7, 5));
+	printf("10ft_substr: %s\n",ft_substr("1234", 0, 0));
+	printf("11ft_substr: %s\n",ft_substr("", 1, 0));
+	printf("12ft_substr: %s\n",ft_substr("", 1, 1));
+	printf("13ft_substr: %s\n",ft_substr("", 0, 1));
+
+	//ft_tolower test
+	char c;
+	c = 'S';
+	printf("%c\n",ft_tolower(c));
+	printf("%c\n\n",tolower(c));
+
+	//ft_toupper test
+	char c;
+	c = 's';
+	printf("%c\n",ft_toupper(c));
+	printf("%c\n\n",toupper(c));
+
 }
 
 	//ft_split test
@@ -223,29 +261,37 @@ int main(void)
 		printf("s5:%s\n",s5[i]);
 	for(size_t	i = 0; i < 1;i++)
 		free(s5[i]);	
-
-	//ft_lstadd_back test
-	t_list	*lst;
-	t_list	*new;
-	lst = malloc(sizeof(t_list));
-	new = malloc(sizeof(t_list));
-	if(!lst)
-		free(lst);
-	if(!new)
-		free(new);
-	lst->content = (int*)2;
-	lst->next = NULL;
-
-	new->content = (int*)88;
-	new->next = NULL;
-
-	ft_lstadd_back(&lst,new);
-	for (t_list *curr = lst; curr != NULL; curr = curr->next)
-	{
-		printf("%d - ", (int)curr->content);
-	}
 } 
-
+	//ft_fd test
+int main (void)
+{
+	int	fd = open("test_user_fd", O_RDWR | O_TRUNC | O_CREAT);
+		ft_putchar_fd('1', fd);
+		ft_putstr_fd("23456789", fd);
+		ft_putendl_fd("abcdef", fd);
+		ft_putnbr_fd(123456789, fd);
+		ft_putnbr_fd(1, fd);
+		ft_putnbr_fd(-123456789, fd);
+		ft_putnbr_fd(-1, fd);
+		ft_putnbr_fd(0, fd);
+		ft_putnbr_fd(-0, fd);
+		ft_putendl_fd("", fd);
+		ft_putnbr_fd((int)2147483648, fd);
+		ft_putnbr_fd((int)2147483649, fd);
+		ft_putendl_fd("", fd);
+		ft_putnbr_fd((int)-2147483648, fd);
+		ft_putnbr_fd((int)-2147483649, fd);
+		ft_putnbr_fd(-0, fd);
+		ft_putstr_fd("", fd);
+		ft_putendl_fd("", fd);
+		ft_putchar_fd('@', fd);
+		ft_putchar_fd('\\', fd);
+		ft_putchar_fd('\%', fd);
+		ft_putchar_fd('$', fd);
+		ft_putchar_fd('\n', fd);
+	close(fd);	
+}
+//split test
  int main(int ac, char **av)
 {
 	char ** dstr;
@@ -262,25 +308,131 @@ ac = 0;
 	return(0);
 } 
 
-//ft_lstclear test
-void del (void * thing)
+//ft_lstnew test
+int main(void)
 {
-	thing = 0;
+	printf("%s",ft_lstnew("dfhisdf")->content);
+}
+
+//ft_lstsize test
+int main(void)
+{
+	t_list	*node;
+	t_list	*node1;
+	t_list	*node2;
+
+	node = ft_lstnew("dfhisdf");
+	node1 = ft_lstnew("dfhi");
+	node2 = ft_lstnew("dfdf");
+
+	node->next = node1;
+	node1->next = node2;
+	node2->next = NULL;
+	printf("%d",ft_lstsize(node));
+}
+
+//ft_lstadd_back test
+int main(void)
+{
+	t_list	*node;
+	t_list	*node1;
+	t_list	*node2;
+	t_list	*new;
+
+	node = ft_lstnew("dfhisdf");
+	node1 = ft_lstnew("dfhi");
+	node2 = ft_lstnew("dfdf");
+	new = ft_lstnew("22");
+	
+	node->next = node1;
+	node1->next = node2;
+	node2->next = NULL;
+
+	ft_lstadd_back(&node, new);
+	for(t_list *curr = node; curr != NULL; curr = curr->next)
+	{
+		printf("%s\n",curr->content);
+	}
+
+}
+
+//ft_lstadd_front test
+int main(void)
+{
+	t_list	*node;
+	t_list	*node1;
+	t_list	*node2;
+	t_list	*new;
+
+	node = ft_lstnew("dfhisdf");
+	node1 = ft_lstnew("dfhi");
+	node2 = ft_lstnew("dfdf");
+	new = ft_lstnew("22");
+	
+	node->next = node1;
+	node1->next = node2;
+	node2->next = NULL;
+
+	ft_lstadd_front(&node, new);
+	for(t_list *curr = node; curr != NULL; curr = curr->next)
+	{
+		printf("%s\n",curr->content);
+	}
+}
+
+//ft_lstclear test
+void del(void *s)
+{
+	s = 0;
 }
 
 int main(void)
 {
-	t_list	*lst;
-	lst = malloc(sizeof(t_list));
-	if(!lst)
-		free(lst);
-	lst->content = (int*)2;
-	lst->next = NULL;
+	t_list	*node;
+	t_list	*node1;
+	t_list	*node2;
 
+	node = ft_lstnew("dfhisdf");
+	node1 = ft_lstnew("dfhi");
+	node2 = ft_lstnew("dfdf");
+	
+	node->next = node1;
+	node1->next = node2;
+	node2->next = NULL;
 
-	ft_lstclear(&lst, del);
-	for (t_list *curr = lst; curr != NULL; curr = curr->next)
+	ft_lstclear(&node, del);
+	for(t_list *curr = node; curr != NULL; curr = curr->next)
 	{
-		printf("%d - ", (int)curr->content);
+		printf("%s\n",curr->content);
 	}
+
+}
+
+//lstdelone test
+void	del(void *s)
+{
+	size_t			i;
+	unsigned char	*str;
+
+	i = 0;
+	str = (unsigned char *)s;
+	while (str[i])
+	{
+		str[i] = '0';
+		i++;
+	}
+}
+
+int main(void)
+{
+	t_list	*node;
+	char	s[] = "123456";
+	node = malloc(sizeof(t_list));
+
+	node->next = NULL;
+	node->content = (char *)s;
+
+	ft_lstdelone(node, del);
+	printf("%s\n",node->content);
+	
 }
