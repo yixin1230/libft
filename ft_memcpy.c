@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: yizhang <marvin@codam.nl>                    +#+                     */
+/*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 15:41:36 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:14:06 by yizhang       ########   odam.nl         */
+/*   Created: 2022/11/04 18:26:29 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/11/04 18:26:29 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

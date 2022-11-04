@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: yizhang <marvin@codam.nl>                    +#+                     */
+/*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 15:43:05 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:21:43 by yizhang       ########   odam.nl         */
+/*   Created: 2022/11/04 18:25:31 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/11/04 18:25:31 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

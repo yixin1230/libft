@@ -3,13 +3,12 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: yizhang <marvin@codam.nl>                    +#+                      #
+#    By: yizhang <yizhang@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
-#    Created: 2022/10/05 17:01:17 by yizhang       #+#    #+#                  #
-#    Updated: 2022/11/03 12:32:22 by yizhang       ########   odam.nl          #
+#    Created: 2022/11/04 18:24:11 by yizhang       #+#    #+#                  #
+#    Updated: 2022/11/04 18:24:11 by yizhang       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = libft.a
 

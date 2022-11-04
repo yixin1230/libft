@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_bzero.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: yizhang <marvin@codam.nl>                    +#+                     */
+/*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 15:41:01 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:08:53 by yizhang       ########   odam.nl         */
+/*   Created: 2022/11/04 18:29:04 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/11/04 18:29:04 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

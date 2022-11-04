@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memset.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: yizhang <marvin@codam.nl>                    +#+                     */
+/*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 15:40:38 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:14:50 by yizhang       ########   odam.nl         */
+/*   Created: 2022/11/04 18:26:00 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/11/04 18:26:00 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

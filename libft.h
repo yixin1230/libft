@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   libft.h                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: yizhang <marvin@codam.nl>                    +#+                     */
+/*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 17:01:02 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/11/01 13:42:24 by yizhang       ########   odam.nl         */
+/*   Created: 2022/11/04 18:24:30 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/11/04 18:24:30 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

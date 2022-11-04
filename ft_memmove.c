@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memmove.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: yizhang <marvin@codam.nl>                    +#+                     */
+/*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 15:42:19 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:14:25 by yizhang       ########   odam.nl         */
+/*   Created: 2022/11/04 18:26:15 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/11/04 18:26:15 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

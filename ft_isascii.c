@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_isascii.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: yizhang <marvin@codam.nl>                    +#+                     */
+/*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 15:32:34 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/10/31 09:10:37 by yizhang       ########   odam.nl         */
+/*   Created: 2022/11/04 18:28:35 by yizhang       #+#    #+#                 */
+/*   Updated: 2022/11/04 18:28:35 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
