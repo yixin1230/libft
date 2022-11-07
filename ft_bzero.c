@@ -6,7 +6,7 @@
 /*   By: yizhang <yizhang@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/04 18:29:04 by yizhang       #+#    #+#                 */
-/*   Updated: 2022/11/04 18:29:04 by yizhang       ########   odam.nl         */
+/*   Updated: 2022/11/07 09:09:44 by yizhang       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	ft_bzero(void *s, size_t n)
 		str[i] = '\0';
 		i++;
 	}
-	s = str;
 }
